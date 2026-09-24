@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MathForge Problem Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="app-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Adaptive math practice</p>
+          <h1 id="app-title">MathForge</h1>
+          <p class="intro">
+            Generate focused practice from early arithmetic through geometry and
+            Calculus III, with instant answers and clean worked steps.
+          </p>
+        </div>
+        <div class="hero-board" aria-hidden="true">
+          <span>x² + y² = r²</span>
+          <span>∫ sin(x) dx</span>
+          <span>∇f · u</span>
+          <span>42 × 7</span>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Problem generator">
+        <aside class="controls-panel">
+          <div class="field-group">
+            <label for="topic">Topic</label>
+            <select id="topic"></select>
+          </div>
+
+          <div class="field-group">
+            <label for="difficulty">Difficulty</label>
+            <div class="segmented" id="difficulty" role="radiogroup" aria-label="Difficulty">
+              <button class="active" type="button" data-difficulty="easy">Easy</button>
+              <button type="button" data-difficulty="medium">Medium</button>
+              <button type="button" data-difficulty="hard">Hard</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="count">Problem count</label>
+            <input id="count" type="range" min="1" max="12" value="6" />
+            <div class="range-row">
+              <span>1</span>
+              <strong id="countValue">6</strong>
+              <span>12</span>
+            </div>
+          </div>
+
+          <div class="toggle-row">
+            <label for="stepsToggle">Show worked steps</label>
+            <input id="stepsToggle" type="checkbox" checked />
+          </div>
+
+          <div class="toggle-row">
+            <label for="answersToggle">Reveal answers</label>
+            <input id="answersToggle" type="checkbox" checked />
+          </div>
+
+          <button class="primary-action" id="generateBtn" type="button">
+            Generate Problems
+          </button>
+        </aside>
+
+        <section class="output-panel">
+          <header class="output-header">
+            <div>
+              <p class="eyebrow">Practice set</p>
+              <h2 id="setTitle">Mixed Arithmetic</h2>
+            </div>
+            <button class="secondary-action" id="printBtn" type="button">Print</button>
+          </header>
+
+          <div class="stats-grid" aria-label="Problem set summary">
+            <div>
+              <span>Level</span>
+              <strong id="statLevel">Easy</strong>
+            </div>
+            <div>
+              <span>Problems</span>
+              <strong id="statCount">6</strong>
+            </div>
+            <div>
+              <span>Scope</span>
+              <strong id="statScope">Arithmetic</strong>
+            </div>
+          </div>
+
+          <div id="problemList" class="problem-list" aria-live="polite"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
